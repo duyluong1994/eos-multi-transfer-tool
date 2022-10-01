@@ -38,6 +38,9 @@
     <label>Private Key</label>
     <input id="key" type="text" placeholder="private key" value="5JtUScZK2XEp3g9gh7F8bwtPTRAkASmNrrftmx4AxDKD5K4zDnr" />
     <br />
+    <label>Memo</label>
+    <input id="memo" type="text" placeholder="memo" value="" />
+    <br />
     <label>Endpoint</label>
     <input id="endpoint" type="text" placeholder="endpoint URL" value="https://eos.greymass.com" />
     <br />
@@ -80,6 +83,7 @@
 
             const from = document.getElementById('from').value;
             const key = document.getElementById('key').value;
+            const memo = document.getElementById('memo').value;
             const endpoint = document.getElementById('endpoint').value;
             const files = document.getElementById('csv_file').files;
 
@@ -129,7 +133,7 @@
                                     from: from,
                                     to: account,
                                     quantity: `${parseFloat(quantity).toFixed(4)} ${TOKEN_SYMBOL}`,
-                                    memo: MEMO,
+                                    memo: memo,
                                 },
                             }
                         })
