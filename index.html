@@ -33,10 +33,10 @@
     <br />
 
     <label>From</label>
-    <input id="from" type="text" placeholder="from account" value="testaccount1" />
+    <input id="from" type="text" placeholder="from account" value="" />
     <br />
     <label>Private Key</label>
-    <input id="key" type="text" placeholder="private key" value="5JtUScZK2XEp3g9gh7F8bwtPTRAkASmNrrftmx4AxDKD5K4zDnr" />
+    <input id="key" type="text" placeholder="private key" value="" />
     <br />
     <label>Memo</label>
     <input id="memo" type="text" placeholder="memo" value="" />
@@ -59,7 +59,7 @@
         Buffer = Buffer.Buffer;
 
         // TODO: EDITABLE VARIABLES -----------------------------
-        const MAX_TRANSFERS_PER_TRANSACTION = 40;
+        const MAX_TRANSFERS_PER_TRANSACTION = 50;
         const TOKEN_CONTRACT = `eosio.token`;
         const TOKEN_SYMBOL = `EOS`;
         const MEMO = '';
@@ -100,6 +100,8 @@
                     slot.push(csv[i]);
                 }
             }
+            transactions = transactions.filter(t => t.length);
+            // console.log(transactions);
 
             if(!transactions || !transactions.length || !transactions[0].length) return alert('Invalid CSV, no rows found (2)');
             if(!from || !from.length) return alert('Invalid from');
@@ -138,8 +140,8 @@
                             }
                         })
                     }, {
-                        blocksBehind: 3,
-                        expireSeconds: 30,
+                        blocksBehind: 30,
+                        expireSeconds: 3600,
                         // sign:false,
                         // broadcast:false,
                         useOldRPC:true,
