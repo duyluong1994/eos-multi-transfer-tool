@@ -42,7 +42,7 @@
     <input id="memo" type="text" placeholder="memo" value="" />
     <br />
     <label>Endpoint</label>
-    <input id="endpoint" type="text" placeholder="endpoint URL" value="https://eos.greymass.com" />
+    <input id="endpoint" type="text" placeholder="endpoint URL" value="" />
     <br />
 
     <br />
@@ -59,7 +59,7 @@
         Buffer = Buffer.Buffer;
 
         // TODO: EDITABLE VARIABLES -----------------------------
-        const MAX_TRANSFERS_PER_TRANSACTION = 50;
+        const MAX_TRANSFERS_PER_TRANSACTION = 2;
         const TOKEN_CONTRACT = `eosio.token`;
         const TOKEN_SYMBOL = `EOS`;
         const MEMO = '';
@@ -101,7 +101,7 @@
                 }
             }
             transactions = transactions.filter(t => t.length);
-            // console.log(transactions);
+            console.log(transactions);
 
             if(!transactions || !transactions.length || !transactions[0].length) return alert('Invalid CSV, no rows found (2)');
             if(!from || !from.length) return alert('Invalid from');
@@ -141,7 +141,7 @@
                         })
                     }, {
                         blocksBehind: 30,
-                        expireSeconds: 3600,
+                        expireSeconds: 1000,
                         // sign:false,
                         // broadcast:false,
                         useOldRPC:true,
