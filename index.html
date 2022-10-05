@@ -33,16 +33,16 @@
     <br />
 
     <label>From</label>
-    <input id="from" type="text" placeholder="from account" value="" />
+    <input id="from" type="text" placeholder="from account" value="luposolitari" />
     <br />
     <label>Private Key</label>
-    <input id="key" type="text" placeholder="private key" value="" />
+    <input id="key" type="text" placeholder="private key" value="5JZpwFnYq92VrghhwRfFw2TjzJ74xAUyQHSnc2NroxbAQQxE89G" />
     <br />
     <label>Memo</label>
     <input id="memo" type="text" placeholder="memo" value="" />
     <br />
     <label>Endpoint</label>
-    <input id="endpoint" type="text" placeholder="endpoint URL" value="" />
+    <input id="endpoint" type="text" placeholder="endpoint URL" value="https://testnet.wax.pink.gg" />
     <br />
 
     <br />
@@ -61,7 +61,7 @@
         // TODO: EDITABLE VARIABLES -----------------------------
         const MAX_TRANSFERS_PER_TRANSACTION = 2;
         const TOKEN_CONTRACT = `eosio.token`;
-        const TOKEN_SYMBOL = `EOS`;
+        const TOKEN_SYMBOL = `WAX`;
         const MEMO = '';
         // TODO: ------------------------------------------------
 
@@ -134,7 +134,7 @@
                                 data: {
                                     from: from,
                                     to: account,
-                                    quantity: `${parseFloat(quantity).toFixed(4)} ${TOKEN_SYMBOL}`,
+                                    quantity: `${parseFloat(quantity).toFixed(8)} ${TOKEN_SYMBOL}`,
                                     memo: memo,
                                 },
                             }
